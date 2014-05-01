@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Boletos ADO</title>
+<link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script language="javascript">
+var costo=0, descuento=0,  resultado;
+function boleto(){
+costo=parseInt(document.getElementById("txtcosto").value);
+descuento=document.getElementById("txtopcion").value;
+
+switch(descuento)
+{
+	case '1':
+	case '2':
+	case '3':
+	resultado=costo/2;
+	document.getElementById("txtresul").value=resultado;
+	break;
+	case '4':
+	resultado=(costo/4)*3;
+	document.getElementById("txtresul").value=resultado;
+	break;
+	default: 
+	alert("Opcion invalida")
+	break;
+	}
+	
+}
+</script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>ADO</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+		  <div data-role="fieldcontain">
+		    <label for="textinput">Introduzca el valor del boleto:</label>
+		    <input type="text" name="txtcosto" id="txtcosto" value=""  />
+	      </div>
+			<ul>
+            <li>1. Niño</li>
+            <li>2. Estudiante</li>
+            <li>3. Adulto Mayor</li>
+            <li>4. Profesor</li> 
+            </ul>
+			<div data-role="fieldcontain">
+			  <div data-role="fieldcontain">
+			    <label for="textinput">Seleccione la opcion deseada:</label>
+			    <input type="text" name="txtopcion" id="txtopcion" value=""  />
+		      </div>
+            
+			  <label for="textinput">Costo total del boleto:</label>
+			  <input type="text" name="txtresul" id="txtresul" disabled="disabled"  />
+		  </div>
+			<button onclick="boleto()">Calcular</button>
+		</ul>		
+	</div>
+	<div data-role="footer">
+		<h4>Autor: Christian Castilla Marin</h4>
+	</div>
+</div>
+
+
+</body>
+</html>
